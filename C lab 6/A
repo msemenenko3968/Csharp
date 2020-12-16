@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+class Human : IComparable<Human>
+	{
+		private string name;
+		private int year;
+		private string state;
+
+		public string Name
+		{
+			set { name = value; }
+			get { return name; }
+		}
+
+		public int Year
+		{
+			set { year = value; }
+			get { return year; }
+		}
+
+		public Human() { }
+
+		public Human(string name, int year, string state)
+		{
+			this.name = name;
+			this.year = year;
+			this.state = state;
+		}
+
+		public void print()
+		{
+			Console.WriteLine(name+";"+year+";"+state+";");
+		}
+
+		public virtual int info()
+		{
+			return DateTime.Today.Year - year;
+		}
+
+		public int CompareTo(Human p)
+		{
+			return this.Name.CompareTo(p.name);
+		}
+	}

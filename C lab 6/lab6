@@ -1,0 +1,44 @@
+using System;
+using System.Collections;
+
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			StudentComparer studentComparer = new StudentComparer();
+			Student[] students = {
+				new Student("Alex",1999,6,7,9),
+				new Student("Tim",2001,8,9,4),
+				new Student("Andrew",2000,8,10,7),
+				new Student("Max",2001,8,9,9),
+				new Student("Noah",2000,7,6,5)
+			};
+
+			int sortedHead = 0;
+			for (int i = 0; i < students.Length; i++) {
+				for (int j = sortedHead; j < students.Length; j++)
+                {
+					if (students[i].Year > students[j].Year) {
+						(students[i], students[j]) = (students[j], students[i]);
+					}
+				}
+				sortedHead++;
+			}
+
+			Console.WriteLine("Sorted by Year");
+
+			foreach (Student student in students)
+			{
+				student.print();
+			}
+
+			Array.Sort(students, studentComparer);
+
+			Console.WriteLine("Sorted by Name");
+
+			foreach (Student student in students)
+			{
+				student.print();
+			}
+		}
+	}

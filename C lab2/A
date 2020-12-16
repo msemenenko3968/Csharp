@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace OOP
+{
+    class A
+    {
+        private int _a = 3;
+        private int _b = 10;
+
+        public A(int a, int b)
+        {
+            _a = a;
+            _b = b;
+        }
+
+        public A()
+        {
+        }
+
+        public int c
+        {
+            get
+            {
+                int i=0;
+                do i++;
+                while(i<5);
+                return _a *= _a++ - _b + i;
+            }
+            set
+            {
+                _a = value;
+            }
+        }
+    }
+}

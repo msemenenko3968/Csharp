@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+class Student : Human
+	{
+		private int gradeMath;
+		private int gradePhisics;
+		private int gradeHistory;
+
+		public Student() : base() { }
+
+		public Student(string name, int year, int gradeMath, int gradePhisics, int gradeHistory) : base(name, year, "Student")
+		{
+			this.gradeMath = gradeMath;
+			this.gradePhisics = gradePhisics;
+			this.gradeHistory = gradeHistory;
+		}
+
+		public double getAvarageGrade()
+		{
+			return (gradeHistory + gradeMath + gradePhisics)/3.0;
+		}
+
+		public int Info() {
+			int[] grades = new int[3];
+			grades[0] = gradePhisics;
+			grades[1] = gradeMath;
+			grades[2] = gradeHistory;
+			return grades.Max();
+		}
+	}
+
+	class StudentComparer : IComparer {
+        public int Compare(object x, object y)
+        {
+			return string.Compare(((Student)x).Name, ((Student)y).Name);
+        }
+    }
